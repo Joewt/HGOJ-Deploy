@@ -1,5 +1,7 @@
 FROM golang
 MAINTAINER Joewt <joewttx@gmail.com>
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN mkdir -p $GOPATH/src/golang.org/x/
 WORKDIR $GOPATH/sr/golang.org/x/
 RUN git clone https://github.com/golang/net.git
@@ -16,5 +18,6 @@ WORKDIR $GOPATH/src/github.com/yinrenxin/
 RUN git clone https://github.com/yinrenxin/hgoj.git
 WORKDIR $GOPATH/src/github.com/yinrenxin/hgoj/
 EXPOSE 8086
-RUN go build -o hgoj main.go
-RUN nohup ./hgoj &
+CMD [ "bee","run" ]
+# RUN go build -o hgoj main.go
+# RUN nohup ./hgoj &
