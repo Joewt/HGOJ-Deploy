@@ -21,7 +21,9 @@ services:
       - "8086:8086"
 
   mysql:
-    image: mysql:${MYSQL_VERSION}
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
     container_name: hgoj_mysql
     volumes:
       - ${DATA_PATH_HOST}/mysql${MYSQL_VERSION}:/var/lib/mysql
