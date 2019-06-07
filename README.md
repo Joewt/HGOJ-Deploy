@@ -1,7 +1,7 @@
 # 湖南工学院在线判题系统部署脚本
 ## 环境准备
 
-### Linux 环境
+### Ubuntu 系统
 
 1. 安装必要的依赖
 
@@ -9,14 +9,11 @@
     sudo apt-get update && sudo apt-get install -y vim  curl git
     ```
 
-2. 安装 Docker
+2. 安装 Docker && Docker-Compose
 
-    国内用户使用脚本一键安装: `sudo curl -sSL https://get.daocloud.io/docker | sh`
-    国外用户使用脚本一键安装: `sudo curl -sSL get.docker.com | sh`
+    一键安装: `sudo curl -sSL https://get.daocloud.io/docker | sh`  
 
-    详细步骤参照： [https://docs.docker.com/install/](https://docs.docker.com/install/)
-
-3. 安装 Docker-Compose
+    详细步骤参照： [https://docs.docker.com/install/](https://docs.docker.com/install/)  
 
    ```
    sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -24,6 +21,9 @@
    sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
    ```
 
+### Mac 系统
+
+Mac系统安装Docker更加简单，只需要到Docker官网下载Docker安装即可，Docker-Compose也会同时安装上
 
 ### Windows 环境
 
@@ -52,11 +52,9 @@ Windows 下的安装仅供体验，勿在生产环境使用。如有必要，请
     docker-compose up -d
     ```
 
-根据网速情况，大约5到30分钟就可以自动搭建完成，全程无需人工干预。
+大约5分钟即可安装完成
 
-等命令执行完成，然后运行 `docker ps -a`，当看到所有的容器的状态没有 `unhealthy` 或 `Exited (x) xxx` 就代表 OJ 已经启动成功。
+## 使用
 
-## 尽情享用吧
-
-通过浏览器访问服务器的 HTTP 8086 端口或者 HTTPS 443 端口，就可以开始使用了。首页默认路径为`/index`
+通过浏览器访问服务器的 HTTP 80 端口或者 HTTPS 443 端口，就可以开始使用了。首页默认路径为`/index`
 
