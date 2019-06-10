@@ -1,6 +1,7 @@
 FROM woodenfish42/hustoj-base as build-env
 LABEL maintainer="muzea <mr.muzea@gmail.com>"
-
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN set -ex \
     && apt install \
                gcc \
