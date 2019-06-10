@@ -35,7 +35,9 @@ services:
       - MYSQL_ROOT_PASSWORD=${PMA_ROOT_PASSWORD}
 
   judge:
-    image: woodenfish42/hustoj-judge:latest
+    build:
+      context: ./judge
+      dockerfile: Dockerfile
     container_name: hgoj_judge
     depends_on:
       - mysql
