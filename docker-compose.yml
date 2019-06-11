@@ -44,6 +44,7 @@ services:
     volumes:
       - ${JUDGE_DATA}:/home/judge/data
       - ${JUDGE_CONF}/judge.conf:/home/judge/etc/judge.conf
+      - ${JUDGE_CONF}/java0.policy:/home/judge/etc/java0.policy
     restart: always
 
   phpmyadmin:
