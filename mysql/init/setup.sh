@@ -1,2 +1,2 @@
 #!/bin/bash
-mysql < /mysql/schema.sql
+mysql < /etc/mysql/schema.sql

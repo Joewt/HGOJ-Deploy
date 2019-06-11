@@ -11,4 +11,4 @@ ADD ./conf.d/ /etc/mysql/conf.d
 COPY ./init/setup.sh /etc/mysql/setup.sh
 COPY ./init/schema.sql /etc/mysql/schema.sql
 
-CMD ["sh","/etc/mysql/setup.sql"]
+CMD ["sh","/etc/mysql/setup.sh"]
