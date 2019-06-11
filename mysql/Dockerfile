@@ -8,7 +8,7 @@ RUN rm -rf /etc/localtime;
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 ADD ./conf.d/ /etc/mysql/conf.d
-COPY ./init/setup.sql /etc/mysql/setup.sql
+COPY ./init/setup.sh /etc/mysql/setup.sh
 COPY ./init/schema.sql /etc/mysql/schema.sql
 
 CMD ["sh","/etc/mysql/setup.sql"]

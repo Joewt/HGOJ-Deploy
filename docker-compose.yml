@@ -18,7 +18,7 @@ services:
       - ${HGOJ_LOG}:/go/src/github.com/yinrenxin/hgoj/logs
     # 端口映射。前者是宿主的。后者是容器里端口
     ports:
-      - "8086:8086"
+      - "80:8086"
 
   mysql:
     build:
