@@ -18,7 +18,7 @@ services:
       - ${HGOJ_LOG}:/go/src/github.com/yinrenxin/hgoj/logs
     # 端口映射。前者是宿主的。后者是容器里端口
     ports:
-      - "80:8086"
+      - "8086:8086"
 
   mysql:
     build:
@@ -45,6 +45,19 @@ services:
       - ${JUDGE_DATA}:/home/judge/data
       - ${JUDGE_CONF}/judge.conf:/home/judge/etc/judge.conf
       - ${JUDGE_CONF}/java0.policy:/home/judge/etc/java0.policy
+    restart: always
+    
+  nginx:
+    image: joewt/idocker_nginx:v1
+    container_name: hgoj_nginx
+    depends_on:
+      - hgoj
+    volumes:
+      - ${APP_PATH_HOST}:${APP_PATH_CONTAINER}
+      - ${NGINX_SITES_PATH}:/etc/nginx/conf.d
+      - ${LOG_PATH_HOST}/nginx:/var/log/nginx
+    ports:
+      - "80:80"
     restart: always
 
   phpmyadmin:
