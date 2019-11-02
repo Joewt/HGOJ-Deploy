@@ -10,6 +10,7 @@ RUN git clone https://github.com/golang/tools.git
 RUN go get github.com/gpmgo/gopm
 RUN go get github.com/astaxie/beego
 RUN go get github.com/beego/bee
+RUN go get github.com/go-redis/redis
 RUN mkdir -p $GOPATH/github.com/go-sql-driver/
 RUN go get github.com/go-sql-driver/mysql
 #RUN go get github.com/shirou/gopsutil/mem
