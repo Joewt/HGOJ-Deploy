@@ -70,3 +70,11 @@ services:
       - MYSQL_ROOT_PASSWORD=${PMA_ROOT_PASSWORD}
     ports:
       - "8080:80"
+  redis:
+    image: joewt/idocker_redis:v1
+    container_name: idocker_redis
+    volumes:
+      - ${DATA_PATH_HOST}/redis:/data
+    ports:
+      - "6379:6379"
+    restart: always
