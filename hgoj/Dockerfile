@@ -18,7 +18,6 @@ RUN mkdir -p /data/www/
 WORKDIR /data/www/
 RUN git clone https://gitee.com/yinrenxin/hgoj.git
 WORKDIR /data/www/hgoj/
+RUN go build -o hgoj
 EXPOSE 8086
-CMD [ "go","run","main.go" ]
-# RUN go build -o hgoj main.go
-# RUN nohup ./hgoj &
+CMD [ "nohup","./hgoj","&" ]
