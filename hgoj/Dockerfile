@@ -14,6 +14,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 #RUN mkdir -p $GOPATH/github.com/go-sql-driver/
 #RUN go get github.com/go-sql-driver/mysql
 #RUN go get github.com/shirou/gopsutil/mem
+RUN go env -w GOPROXY=https://goproxy.cn,direct
 RUN mkdir -p /data/www/
 WORKDIR /data/www/
 RUN git clone https://gitee.com/yinrenxin/hgoj.git

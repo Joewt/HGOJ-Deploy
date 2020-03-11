@@ -5,9 +5,10 @@ services:
   #hgoj服务
   hgoj:
     #服务器镜像
-    build:
-      context: ./hgoj
-      dockerfile: Dockerfile
+#    build:
+#      context: ./hgoj
+#      dockerfile: Dockerfile
+    image: registry.cn-zhangjiakou.aliyuncs.com/hgoj/hgoj:v1.1
     container_name: hgoj_server
     depends_on:
       - mysql
@@ -35,9 +36,10 @@ services:
       - MYSQL_ROOT_PASSWORD=${PMA_ROOT_PASSWORD}
 
   judge:
-    build:
-      context: ./judge
-      dockerfile: Dockerfile
+#    build:
+#      context: ./judge
+#      dockerfile: Dockerfile
+    image: registry.cn-zhangjiakou.aliyuncs.com/hgoj/judge:v1
     container_name: hgoj_judge
     depends_on:
       - mysql
@@ -48,7 +50,10 @@ services:
     restart: always
     
   nginx:
-    image: joewt/idocker_nginx:v1
+    image: registry.cn-zhangjiakou.aliyuncs.com/hgoj/nginx:v1
+#    build:
+#      context: ./nginx
+#      dockerfile: Dockerfile
     container_name: hgoj_nginx
     depends_on:
       - hgoj
@@ -61,7 +66,7 @@ services:
     restart: always
 
   phpmyadmin:
-    image: joewt/idocker_phpmyadmin:v1
+    image: registry.cn-zhangjiakou.aliyuncs.com/hgoj/phpmyadmin:v1
     container_name: hgoj_phpmyadmin
     depends_on:
       - mysql
@@ -71,7 +76,7 @@ services:
     ports:
       - "8080:80"
   redis:
-    image: joewt/idocker_redis:v1
+    image: registry.cn-zhangjiakou.aliyuncs.com/hgoj/redis:v1
     container_name: idocker_redis
     volumes:
       - ${DATA_PATH_HOST}/redis:/data
