@@ -77,7 +77,7 @@ services:
       - "8080:80"
   redis:
     image: registry.cn-zhangjiakou.aliyuncs.com/hgoj/redis:v1
-    container_name: idocker_redis
+    container_name: hgoj_redis
     volumes:
       - ${DATA_PATH_HOST}/redis:/data
     ports:
