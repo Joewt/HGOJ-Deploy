@@ -5,10 +5,10 @@ services:
   #hgoj服务
   hgoj:
     #服务器镜像
-#    build:
-#      context: ./hgoj
-#      dockerfile: Dockerfile
-    image: registry.cn-zhangjiakou.aliyuncs.com/hgoj/hgoj:v1.1
+    build:
+      context: ./hgoj
+      dockerfile: Dockerfile
+#    image: registry.cn-zhangjiakou.aliyuncs.com/hgoj/hgoj:v1.1
     container_name: hgoj_server
     depends_on:
       - mysql
